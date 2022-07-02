@@ -9,9 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{39EEFE4D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvMazeScraper.Api", "src\TvMazeScraper.Api\TvMazeScraper.Api.csproj", "{66B5232E-9576-494D-AD5A-F2D024F4555C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvMazeScraper.Core", "src\TvMazeScraper.Core\TvMazeScraper.Core.csproj", "{E3238999-8429-4FB4-8365-6180CA3CDE37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvMazeScraper.Core", "src\TvMazeScraper.Core\TvMazeScraper.Core.csproj", "{E3238999-8429-4FB4-8365-6180CA3CDE37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvMazeScraper.Infrastructure", "src\TvMazeScraper.Infrastructure\TvMazeScraper.Infrastructure.csproj", "{A75CE0FA-21AD-4444-8120-64F3CFC9D833}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvMazeScraper.Infrastructure", "src\TvMazeScraper.Infrastructure\TvMazeScraper.Infrastructure.csproj", "{A75CE0FA-21AD-4444-8120-64F3CFC9D833}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvMazeScraper.Api.IntegrationTests", "tests\TvMazeScraper.Api.IntegrationTests\TvMazeScraper.Api.IntegrationTests.csproj", "{FE810239-8C78-4A37-8D3E-3919D59539D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{A75CE0FA-21AD-4444-8120-64F3CFC9D833}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A75CE0FA-21AD-4444-8120-64F3CFC9D833}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A75CE0FA-21AD-4444-8120-64F3CFC9D833}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE810239-8C78-4A37-8D3E-3919D59539D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE810239-8C78-4A37-8D3E-3919D59539D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE810239-8C78-4A37-8D3E-3919D59539D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE810239-8C78-4A37-8D3E-3919D59539D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{66B5232E-9576-494D-AD5A-F2D024F4555C} = {D17B7033-BDA6-4BC7-AF1F-7CBA43E73867}
 		{E3238999-8429-4FB4-8365-6180CA3CDE37} = {D17B7033-BDA6-4BC7-AF1F-7CBA43E73867}
 		{A75CE0FA-21AD-4444-8120-64F3CFC9D833} = {D17B7033-BDA6-4BC7-AF1F-7CBA43E73867}
+		{FE810239-8C78-4A37-8D3E-3919D59539D5} = {39EEFE4D-347B-40E3-867D-A600DE938163}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B2B22F5-DCE4-44C0-8137-B9ABC61A4A62}
