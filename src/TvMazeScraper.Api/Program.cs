@@ -14,6 +14,7 @@ using TvMazeScraper.Api.AutoMapper;
 using TvMazeScraper.Api.BackgroundServices;
 using TvMazeScraper.Core;
 using TvMazeScraper.Core.Repositories;
+using TvMazeScraper.Core.Services;
 using TvMazeScraper.Infrastructure.EntityFramework;
 using TvMazeScraper.Infrastructure.EntityFramework.Repositories;
 
@@ -43,7 +44,7 @@ builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 builder.Services.AddScoped<IShowService, ShowService>();
 
 builder.Services.AddHostedService<SchedulerService>();
-builder.Services.AddScoped<IScraperBackgroundService, ScraperBackgroundService>();
+builder.Services.AddScoped<IScraperService, ScraperService>();
 
 builder.Services
            .AddControllers();

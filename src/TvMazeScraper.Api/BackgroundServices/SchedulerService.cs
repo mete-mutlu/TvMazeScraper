@@ -5,6 +5,7 @@ using Cronos;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TvMazeScraper.Core.Services;
 
 namespace TvMazeScraper.Api.BackgroundServices
 {
@@ -26,16 +27,16 @@ namespace TvMazeScraper.Api.BackgroundServices
             {
                 using var scope = _serviceProvider.CreateScope();
 
-                var scopedSchedulerService = scope.ServiceProvider.GetRequiredService<IScraperBackgroundService>();
+                var scopedSchedulerService = scope.ServiceProvider.GetRequiredService<IScraperService>();
                 if (!initiallyExecuted)
                 {
-                    await scopedSchedulerService.ExecuteAsync(stoppingToken);
+                    await scopedSchedulerService.Scrape(stoppingToken);
                     initiallyExecuted = true;
                 }
 
                 //Every 3 hours 
                 await WaitForNextSchedule("0 */3 * * *");
-                await scopedSchedulerService.ExecuteAsync(stoppingToken);
+                await scopedSchedulerService.Scrape(stoppingToken);
             }
         }
 

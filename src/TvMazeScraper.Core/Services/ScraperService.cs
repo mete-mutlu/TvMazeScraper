@@ -9,26 +9,23 @@ using TvMazeScraper.Core.Dtos;
 using TvMazeScraper.Core.Entities;
 using TvMazeScraper.Core.Repositories;
 
-namespace TvMazeScraper.Api.BackgroundServices
+namespace TvMazeScraper.Core.Services
 {
-    public interface IScraperBackgroundService
-    {
-        Task ExecuteAsync(CancellationToken cancellationToken);
-    }
 
-    public class ScraperBackgroundService : IScraperBackgroundService
+
+    public class ScraperService : IScraperService
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IShowRepository _showRepository;
         private readonly IPersonRepository _personRepository;
 
-        public ScraperBackgroundService(IHttpClientFactory httpClientFactory, IShowRepository showRepository, IPersonRepository personRepository)
+        public ScraperService(IHttpClientFactory httpClientFactory, IShowRepository showRepository, IPersonRepository personRepository)
         {
             _httpClientFactory = httpClientFactory;
             _showRepository = showRepository;
             _personRepository = personRepository;
         }
-        public async Task ExecuteAsync(CancellationToken cancellationToken)
+        public async Task Scrape(CancellationToken cancellationToken)
         {
 
             var showsFromDb = await _showRepository.GetShows();
@@ -36,7 +33,7 @@ namespace TvMazeScraper.Api.BackgroundServices
             var shows = JsonConvert.DeserializeObject<IEnumerable<ShowApiResponse>>(await CallApi(apiClient, "/shows"));
             foreach (var show in shows)
             {
-                var showFromDb = showsFromDb.Where(p => p.Id == show.Id).FirstOrDefault();         
+                var showFromDb = showsFromDb.Where(p => p.Id == show.Id).FirstOrDefault();
                 if (showFromDb == null)
                 {
                     var casts = JsonConvert.DeserializeObject<IEnumerable<CastRootApiResponse>>(await CallApi(apiClient, $"/shows/{show.Id}/cast"));
@@ -72,10 +69,10 @@ namespace TvMazeScraper.Api.BackgroundServices
     }
 
 
-  
 
 
 
 
-    
+
+
 }
